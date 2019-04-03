@@ -38,29 +38,41 @@ class Banco{
     }
     function Mostra() {
         echo "<br>--------------------------------------------------<br>";
-        echo "Informações do Cliente:<br> ";
+        echo "<br>Informações do Cliente:<br> ";
         echo "Nome: " . $this-> nome . "<br>";
         echo "Conta: " . $this-> conta . "<br>";
-        echo "Saldo: R$ " . $this-> valor;
+        echo "Saldo: R$ " . $this-> valor . "<br>";
         echo "<br>--------------------------------------------------<br>";
     }
 }
 //Teste banco 
 $bancoteste = new Banco();
 $bancoteste -> Mostra();
-echo "Criar Conta ";
-$bancoteste -> CriarConta("Marina ","88054620",50000);
+echo "<br>Criar Conta<br> ";
+$bancoteste -> CriarConta("Marina ","88054620",500);
 $bancoteste -> Mostra();
-echo "Fazer Saque de 300 <br>";
+echo "<br> Conta criada! <br>";
+//Teste Saque 
+echo "<br>Fazer Saque de R$ 300 <br>";
 $bancoteste -> Saque("88054620",300);
-echo "<br>Fazer Saque de 150<br>";
+echo "<br> Fim teste saldo 1 <br>";
+echo "<br>Fazer Saque de R$ 150<br>";
 $bancoteste -> Saque("88054620",150);
 $bancoteste -> Mostra();
+echo "<br> Fim teste saldo 2 <br>";
+//Teste saldo insuficiente 
+echo "<br> Fazer Saque de R$ 500 <br>";
+$bancoteste -> Saque("88054620",500);
+$bancoteste -> Mostra();
+echo"<br> Fim teste saldo 3 <br>";
+
 //Teste erro 
 echo "<br>Fazer Depósito Com Numero da Conta Errado<br>";
 $bancoteste -> Depositar("011-1407",234);
+echo "<br> Fim teste Depósito 1<br>";
 //Teste ok 
 echo "<br>Faz Depósito Com Numero da Conta Certo<br>";
 $bancoteste -> Depositar("88054620",234);
 $bancoteste -> Mostra();
+echo "<br> Fim teste Depósito 2<br>";
 ?>
