@@ -1,2 +1,2 @@
-# Gest-o-de-Contas---PHP
+## Gestão de contas PHP
 Projeto para gestão de contas em PHP 
