@@ -3,7 +3,11 @@ class Banco{
     var $nomecliente = ""; 
     var $numeroconta = ""; 
     var $saldo = ""; 
-    
+    function __construct() {
+        $this -> nome = null;
+        $this -> conta = null;
+        $this -> valor = 0;
+    }
     function CriarConta($nome,$conta,$valor = 0) {
         $this -> nome = $nome;
         $this -> conta = $conta;
@@ -34,38 +38,29 @@ class Banco{
     }
     function Mostra() {
         echo "<br>--------------------------------------------------<br>";
-        echo "Informações do Cliente: ";
-        echo "Nome: ".$this -> nome."<br>";
-        echo "Conta: ".$this -> conta."<br>";
-        echo "Saldo:R$ ".$this -> valor;
+        echo "Informações do Cliente:<br> ";
+        echo "Nome: " . $this-> nome . "<br>";
+        echo "Conta: " . $this-> conta . "<br>";
+        echo "Saldo: R$ " . $this-> valor;
         echo "<br>--------------------------------------------------<br>";
     }
 }
 //Teste banco 
 $bancoteste = new Banco();
 $bancoteste -> Mostra();
-
 echo "Criar Conta ";
-
 $bancoteste -> CriarConta("Marina ","88054620",50000);
 $bancoteste -> Mostra();
-
 echo "Fazer Saque de 300 <br>";
-$bancoteste -> Saque("88054620 ",300);
-
+$bancoteste -> Saque("88054620",300);
 echo "<br>Fazer Saque de 150<br>";
-$bancoteste -> Saque("88054620 ",150);
+$bancoteste -> Saque("88054620",150);
 $bancoteste -> Mostra();
-
-
 //Teste erro 
 echo "<br>Fazer Depósito Com Numero da Conta Errado<br>";
-$bancoteste -> Deposito("011-1407",234);
-
-
+$bancoteste -> Depositar("011-1407",234);
 //Teste ok 
 echo "<br>Faz Depósito Com Numero da Conta Certo<br>";
 $bancoteste -> Depositar("88054620",234);
 $bancoteste -> Mostra();
-
 ?>
